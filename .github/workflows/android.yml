@@ -1,8 +1,10 @@
-
 name: Build Android APK
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
@@ -16,17 +18,17 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: "temurin"
+          distribution: 'temurin'
           java-version: 17
 
-      - name: Give permission to gradlew
+      - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Build APK (Debug)
-        run: ./gradlew assembleDebug
+      - name: Build Debug APK
+        run: ./gradlew :mlpingbooster:assembleDebug
 
-      - name: Upload APK
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug.apk
-          path: '**/build/outputs/apk/debug/*.apk'
+          name: mlpingbooster-debug
+          path: mlpingbooster/build/outputs/apk/debug/mlpingbooster-debug.apk
