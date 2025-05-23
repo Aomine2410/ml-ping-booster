@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -15,7 +16,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: "temurin"
           java-version: 17
 
       - name: Give permission to gradlew
@@ -27,5 +28,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: mlpingbooster/build/outputs/apk/debug/*.apk
+          name: app-debug.apk
+          path: '**/build/outputs/apk/debug/*.apk'
