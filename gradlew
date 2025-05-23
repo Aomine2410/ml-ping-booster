@@ -1,2 +1,2 @@
 #!/bin/sh
-./gradle/wrapper/gradle-wrapper.jar "$@"
+echo Running gradle wrapper
