@@ -1,1 +1,2 @@
-include ':app'
+include ':mlpingbooster'
+rootProject.name = "ml-ping-booster"
